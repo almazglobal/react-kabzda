@@ -53,6 +53,7 @@ export const ControlledInput = () => {
 }
 
 export const ControlledCheckbox = () => {
+    const [parentValue, setParentValue] = useState(false)
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setParentValue(e.currentTarget.checked)
     }

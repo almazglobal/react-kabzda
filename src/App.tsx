@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {StarType} from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
+import {Select} from "./components/Select/Select";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Rating value={4}/>*/}
             {/*<Accordion title={"Menu"} collapsed={false}/>*/}
             {/*<Accordion title={"Users"}/>*/}
+            <Select value={1} item={[{title: 'JS', value: 1}, {title: 'React', value: 2}, {title: 'CSS', value: 3}]}/>
 
         </div>
     );

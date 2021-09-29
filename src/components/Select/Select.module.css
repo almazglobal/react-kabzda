@@ -1,0 +1,15 @@
+
+.fieldSelect {
+ border: 1px solid blue;
+    max-width: 100px;
+    display: block;
+}
+
+.options {
+    border: 1px solid red;
+    max-width: 100px;
+}
+
+.hoverItem {
+    background: #1ea7fd;
+}
