@@ -32,7 +32,7 @@ function App() {
             <Rating value={4}/>*/}
             {/*<Accordion title={"Menu"} collapsed={false}/>*/}
             {/*<Accordion title={"Users"}/>*/}
-            <Select value={1} item={[{title: 'JS', value: 1}, {title: 'React', value: 2}, {title: 'CSS', value: 3}]}/>
+            <Select value={'1'} item={[{title: 'JS', value: '1'}, {title: 'React', value: '2'}, {title: 'CSS', value: '3'}]}/>
 
         </div>
     );
