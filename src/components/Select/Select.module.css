@@ -3,13 +3,20 @@
  border: 1px solid blue;
     max-width: 100px;
     display: block;
+    padding: 5px;
 }
 
 .options {
     border: 1px solid red;
     max-width: 100px;
+    padding: 5px;
 }
 
 .hoverItem {
     background: #1ea7fd;
+    color: white;
+}
+
+.optionItem {
+    padding: 5px;
 }

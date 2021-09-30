@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {ChangeEvent, useState, KeyboardEvent} from 'react'
 import styles from './Select.module.css'
 
 type ItemType = {
@@ -29,24 +29,20 @@ export const Select = (props: SelectPropsType) => {
         setHoveredItem(value)
     }
 
-    const onKeyHandler = (e: React.KeyboardEvent<HTMLSpanElement>) => {
+    const onKeyHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Escape') {
             setCollapsed(false)
             return
         }
-
-        if (e.key === 'Space') {
-            debugger
+        if (e.key === ' ') {
             setCollapsed(!collapsed)
             return
         }
         if (e.key === 'Enter') {
             onSelectValueHandler(hoveredItem)
         }
-            for (let i = 0; i < props.item.length; i++) {
-
+        for (let i = 0; i < props.item.length; i++) {
             if (hoveredItem === props.item[i].value) {
-
                 if (e.key === 'ArrowUp') {
                     if (props.item[i - 1] !== undefined) {
                         setHoveredItem(props.item[i - 1].value)
@@ -63,18 +59,23 @@ export const Select = (props: SelectPropsType) => {
         }
     }
 
+    const onChangeSelectInput = (e: ChangeEvent<HTMLInputElement>) => {
+        setValue(e.currentTarget.value)
+    }
     return (
+        <div>
+            <input type={"text"}
+                   onKeyDown={onKeyHandler}
+                   tabIndex={0}
+                   className={styles.fieldSelect}
+                   onClick={() => setCollapsed(!collapsed)}
+                   value={value}
+                   onChange={onChangeSelectInput}
+            />
 
-        <div >
-            <span onKeyDown={onKeyHandler} tabIndex={0} className={styles.fieldSelect}
-                  onClick={() => setCollapsed(!collapsed)}
-
-            >
-                {value}
-            </span>
             <div className={collapsed ? styles.options : ''}>
                 {collapsed && props.item.map(item =>
-                    <div className={item.value === hoveredItem ? styles.hoverItem : ''}
+                    <div className={`${styles.optionItem} ${item.value === hoveredItem ? styles.hoverItem : ''}`}
                          onMouseEnter={() => onHoverHandler(item.value)}
                          onClick={() => onSelectValueHandler(item.value)}
 
