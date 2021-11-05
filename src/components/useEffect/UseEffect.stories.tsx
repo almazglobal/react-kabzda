@@ -10,9 +10,11 @@ export const SimpleExample = () => {
     console.log('SimpleExample')
 
     useEffect( ()=> {
-        console.log('useEffect')
-        document.title = counter.toString()
-    })
+        console.log('tick')
+        setInterval(()=> {
+            setCounter((counter) => counter + 1)
+        }, 1000)
+    }, [])
 
     return <>
     hello, {counter}
